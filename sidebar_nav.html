@@ -97,32 +97,12 @@
   <script>
     const menu = document.querySelector('.menu');
     const items = document.querySelectorAll('.item');
-    console.log('run');
-
-    /* Activate Submenu */
-    function onHover() {
-      // if (this.classList.contains('submenu-active')) {
-      //   this.classList.remove('submenu-active');
-      // } else if (menu.querySelector('.submenu-active')) {
-      //   menu
-      //     .querySelector('.submenu-active')
-      //     .classList.remove('submenu-active');
-      //   this.classList.add('submenu-active');
-      // } else {
-
-      this.classList.add('submenu-active');
-      // }
-    }
-
-    function onMouseOut() {
-      this.classList.remove('submenu-active');
-    }
-
+    
     /* Event Listeners */
     for (let item of items) {
       if (item.querySelector('.submenu')) {
-        item.addEventListener('mouseover', onHover, false);
-        item.addEventListener('mouseout', onMouseOut, false);
+        item.addEventListener('mouseover', function() {this.classList.add('submenu-active')}, false);
+        item.addEventListener('mouseout', function() {this.classList.remove('submenu-active')}, false);
       }
     }
   </script>
